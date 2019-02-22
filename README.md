@@ -1,3 +1,7 @@
+This is a fork of a fork of a project that's not maintained.
+I'm forking because we need temporary support for spark 2.4
+Use at your own risk -- not meant for stability.
+
 # Redshift Data Source for Apache Spark
 
 [![Build Status](https://travis-ci.org/Yelp/spark-redshift.svg?branch=master)](https://travis-ci.org/Yelp/spark-redshift)
@@ -37,32 +41,7 @@ This library is more suited to ETL than interactive queries, since large amounts
 
 ## Installation
 
-This library requires Apache Spark 2.0+ and Amazon Redshift 1.0.963+.
-
-For version that works with Spark 1.x, please check for the [1.x branch](https://github.com/databricks/spark-redshift/tree/branch-1.x).
-
-You may use this library in your applications with the following dependency information:
-
-**Scala 2.10**
-
-```
-groupId: com.databricks
-artifactId: spark-redshift_2.10
-version: 3.0.0-preview1
-```
-
-**Scala 2.11**
-```
-groupId: com.databricks
-artifactId: spark-redshift_2.11
-version: 3.0.0-preview1
-```
-
-You will also need to provide a JDBC driver that is compatible with Redshift. Amazon recommend that you use [their driver](http://docs.aws.amazon.com/redshift/latest/mgmt/configure-jdbc-connection.html), which is distributed as a JAR that is hosted on Amazon's website. This library has also been successfully tested using the Postgres JDBC driver.
-
-**Note on Hadoop versions**: This library depends on [`spark-avro`](https://github.com/databricks/spark-avro), which should automatically be downloaded because it is declared as a dependency. However, you may need to provide the corresponding `avro-mapred` dependency which matches your Hadoop distribution. In most deployments, however, this dependency will be automatically provided by your cluster's Spark assemblies and no additional action will be required.
-
-**Note on Amazon SDK dependency**: This library declares a `provided` dependency on components of the AWS Java SDK. In most cases, these libraries will be provided by your deployment environment. However, if you get ClassNotFoundExceptions for Amazon SDK classes then you will need to add explicit dependencies on `com.amazonaws.aws-java-sdk-core` and `com.amazonaws.aws-java-sdk-s3` as part of your build / runtime configuration. See the comments in `project/SparkRedshiftBuild.scala` for more details.
+This library requires Apache Spark 2.4+ and Amazon Redshift 1.0.963+.
 
 ### Snapshot builds
 
@@ -97,7 +76,7 @@ to use these snapshots in your build, you'll need to add the JitPack repository 
    then
 
    ```
-   libraryDependencies += "com.github.databricks" %% "spark-redshift" % "master-SNAPSHOT"
+   libraryDependencies += "com.github.Asana" %% "spark-redshift" % "master-SNAPSHOT"
    ```
 
 - In Databricks: use the "Advanced Options" toggle in the "Create Library" screen to specify
@@ -107,7 +86,6 @@ to use these snapshots in your build, you'll need to add the JitPack repository 
 
   Use `https://jitpack.io` as the repository.
 
-  - For Scala 2.10: use the coordinate `com.github.databricks:spark-redshift_2.10:master-SNAPSHOT`
   - For Scala 2.11: use the coordinate `com.github.databricks:spark-redshift_2.11:master-SNAPSHOT`
 
 

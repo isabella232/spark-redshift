@@ -18,7 +18,6 @@
 
 package org.apache.hadoop.fs.s3native;
 
-import org.apache.hadoop.fs.s3native.NativeS3FileSystem;
 import org.apache.hadoop.fs.s3native.InMemoryNativeFileSystemStore;
 
 /**
